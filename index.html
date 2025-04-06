@@ -39,7 +39,6 @@
       font-weight: bold;
       text-align: center;
       cursor: pointer;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
       position: relative;
     }
     .planet::after {
@@ -57,6 +56,7 @@
       opacity: 1;
       transform: translateX(-50%) translateY(-5px);
     }
+
     .neptune {
       background: linear-gradient(45deg, #00f, #f0f);
       font-family: 'Press Start 2P', monospace;
@@ -64,6 +64,45 @@
     .neptune:hover {
       box-shadow: 0 0 25px #0ff;
     }
+    .neptune::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border: 2px dashed #0ff;
+      border-radius: 50%;
+      animation: spin 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .neptune:hover::before {
+      opacity: 1;
+    }
+    .alien {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('https://i.imgur.com/V6L2A1k.png'); /* alien pixélisé Pixicore */
+      background-size: cover;
+      opacity: 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    .neptune:hover .alien {
+      opacity: 1;
+    }
+    .alien1 { top: -20px; left: 10px; animation-delay: 0s; }
+    .alien2 { bottom: -20px; right: 10px; animation-delay: 1s; }
+    .alien3 { top: 50%; left: -30px; animation-delay: 2s; }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
     .moonpain {
       background: radial-gradient(circle, #900, #000);
       font-family: 'Great Vibes', cursive;
@@ -97,7 +136,12 @@
 <body>
   <canvas id="starfield"></canvas>
   <div class="planet-container">
-    <div class="planet neptune" data-theme="Gaming / VR" onclick="location.href='neptune-geek/index.html'">Neptune<br>Geek</div>
+    <div class="planet neptune" data-theme="Gaming / VR" onclick="location.href='neptune-geek/index.html'">
+      Neptune<br>Geek
+      <div class="alien alien1"></div>
+      <div class="alien alien2"></div>
+      <div class="alien alien3"></div>
+    </div>
     <div class="planet moonpain" data-theme="Charme / Intimité" onclick="location.href='moon-pain/index.html'">Moon<br>Pain</div>
     <div class="planet mercury" data-theme="Récits / Écriture" onclick="location.href='mercury-tales/index.html'">Mercury<br>Tales</div>
     <div class="planet earth" data-theme="Paysages / Nature" onclick="location.href='earth-of-heart/index.html'">Earth<br>of Heart</div>
