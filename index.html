@@ -58,49 +58,40 @@
     }
 
     .neptune {
-      background: linear-gradient(45deg, #00f, #f0f);
+      background: url('https://i.imgur.com/wZyVR1I.png') center/cover no-repeat;
       font-family: 'Press Start 2P', monospace;
+      overflow: visible;
     }
-    .neptune:hover {
-      box-shadow: 0 0 25px #0ff;
-    }
-    .neptune::before {
-      content: "";
+    .neptune .ring {
       position: absolute;
-      width: 160px;
-      height: 160px;
-      border: 2px dashed #0ff;
+      width: 180px;
+      height: 180px;
+      border: 3px solid transparent;
+      border-top: 3px solid #f0f;
+      border-bottom: 3px solid #0ff;
       border-radius: 50%;
-      animation: spin 4s linear infinite;
-      opacity: 0;
-      transition: opacity 0.3s;
+      animation: orbit 5s linear infinite;
+      z-index: 0;
     }
-    .neptune:hover::before {
-      opacity: 1;
+    .neptune:hover .ring {
+      z-index: 2;
     }
-    .alien {
+    @keyframes orbit {
+      0% { transform: rotateX(60deg) rotateZ(0deg); }
+      100% { transform: rotateX(60deg) rotateZ(360deg); }
+    }
+    .pixicore {
       position: absolute;
-      width: 24px;
-      height: 24px;
-      background-image: url('https://i.imgur.com/V6L2A1k.png'); /* alien pixélisé Pixicore */
-      background-size: cover;
+      bottom: 0;
+      width: 100px;
       opacity: 0;
-      animation: float 3s ease-in-out infinite;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      z-index: 3;
     }
-    .neptune:hover .alien {
+    .neptune:hover .pixicore {
       opacity: 1;
-    }
-    .alien1 { top: -20px; left: 10px; animation-delay: 0s; }
-    .alien2 { bottom: -20px; right: 10px; animation-delay: 1s; }
-    .alien3 { top: 50%; left: -30px; animation-delay: 2s; }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      transform: translateY(-80px);
     }
 
     .moonpain {
@@ -137,10 +128,9 @@
   <canvas id="starfield"></canvas>
   <div class="planet-container">
     <div class="planet neptune" data-theme="Gaming / VR" onclick="location.href='neptune-geek/index.html'">
+      <div class="ring"></div>
+      <img src="https://sideralisstudio.github.io/assets/pixicore.png" alt="Pixicore" class="pixicore">
       Neptune<br>Geek
-      <div class="alien alien1"></div>
-      <div class="alien alien2"></div>
-      <div class="alien alien3"></div>
     </div>
     <div class="planet moonpain" data-theme="Charme / Intimité" onclick="location.href='moon-pain/index.html'">Moon<br>Pain</div>
     <div class="planet mercury" data-theme="Récits / Écriture" onclick="location.href='mercury-tales/index.html'">Mercury<br>Tales</div>
