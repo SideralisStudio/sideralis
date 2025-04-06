@@ -3,56 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sideralis - CSS Planets</title>
+  <title>Sideralis - Planètes Réalistes</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Playfair+Display&family=Press+Start+2P&family=Great+Vibes&family=Prompt:wght@600&family=Major+Mono+Display&family=UnifrakturCook&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom, #000010, #020014);
+      padding: 0;
+      background: radial-gradient(ellipse at bottom, #000010 0%, #000000 100%);
       overflow: hidden;
       font-family: 'Orbitron', sans-serif;
       color: white;
     }
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.ibb.co/FWGGxQp/starfield.gif') repeat;
-      opacity: 0.15;
-      z-index: 0;
-    }
+
     .space {
       display: flex;
       justify-content: center;
       align-items: flex-end;
       height: 100vh;
-      gap: 80px;
+      gap: 100px;
+      padding-bottom: 60px;
       position: relative;
       z-index: 1;
     }
+
     .planet {
       width: 160px;
       height: 160px;
       border-radius: 50%;
       position: relative;
+      background: radial-gradient(circle at 30% 30%, #ffffff22, #00000088);
       box-shadow: inset -15px -15px 25px rgba(0,0,0,0.4), 0 0 40px rgba(255,255,255,0.05);
       overflow: hidden;
-      animation: float 8s ease-in-out infinite;
+      animation: float 6s ease-in-out infinite;
     }
-    .planet::before {
-      content: '';
-      position: absolute;
-      width: 80%;
-      height: 80%;
-      top: 10%;
-      left: 10%;
-      border-radius: 50%;
-      background: radial-gradient(rgba(255,255,255,0.1), transparent);
-      z-index: 1;
-    }
+
     .planet::after {
       content: attr(data-name);
       position: absolute;
@@ -60,58 +44,67 @@
       width: 100%;
       text-align: center;
       font-size: 1em;
-      z-index: 2;
     }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
     .earth {
-      background: radial-gradient(#9cfac3, #3c9bbf);
+      background: radial-gradient(circle at 30% 30%, #a0ffd1, #228b8d);
       font-family: 'Quicksand', sans-serif;
     }
-    .earth::after { color: #a5ffcf; }
+    .earth::after { color: #9ef2bf; }
 
     .moonpain {
-      background: radial-gradient(#ff1e56, #100000);
+      background: radial-gradient(circle at 30% 30%, #ff4e6a, #290000);
       font-family: 'Great Vibes', cursive;
     }
-    .moonpain::after { color: #ff5c5c; }
+    .moonpain::after { color: #ff8080; }
 
     .neptune {
-      background: radial-gradient(#00f0ff, #ff00f0);
+      background: radial-gradient(circle at 30% 30%, #00e1ff, #37004b);
       font-family: 'Press Start 2P', monospace;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     }
     .neptune::after { color: #79f0ff; }
 
     .mercury {
-      background: radial-gradient(#c68fff, #2c0042);
+      background: radial-gradient(circle at 30% 30%, #e6b0ff, #3b0057);
       font-family: 'UnifrakturCook', cursive;
     }
     .mercury::after { color: #ddaaff; }
 
     .jupiter {
-      background: radial-gradient(#ffc857, #ff7300);
+      background: radial-gradient(circle at 30% 30%, #ffe291, #ff7b00);
       font-family: 'Playfair Display', serif;
     }
     .jupiter::after { color: #ffd478; }
 
-    /* Cratères stylisés avec pseudo éléments */
+    /* Cratères et reliefs */
     .planet span {
       position: absolute;
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.3);
       z-index: 0;
     }
-    .planet span:nth-child(1) {
-      width: 15px; height: 15px; top: 30px; left: 40px;
-    }
-    .planet span:nth-child(2) {
-      width: 10px; height: 10px; top: 70px; left: 100px;
-    }
-    .planet span:nth-child(3) {
-      width: 8px; height: 8px; top: 90px; left: 60px;
+    .planet span:nth-child(1) { width: 14px; height: 14px; top: 20px; left: 30px; }
+    .planet span:nth-child(2) { width: 10px; height: 10px; top: 70px; left: 90px; }
+    .planet span:nth-child(3) { width: 8px; height: 8px; top: 110px; left: 50px; }
+
+    /* Nébuleuse Neptune */
+    .nebulous-glow {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(255,0,255,0.15) 100%);
+      border-radius: 50%;
+      filter: blur(50px);
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(50% - 80px);
+      z-index: 0;
     }
   </style>
 </head>
@@ -124,6 +117,7 @@
       <span></span><span></span><span></span>
     </div>
     <div class="planet neptune" data-name="Neptune Geek">
+      <div class="nebulous-glow"></div>
       <span></span><span></span><span></span>
     </div>
     <div class="planet mercury" data-name="Mercury Story">
