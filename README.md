@@ -1,2 +1,0 @@
-# sideralis
-Mon univers créatif
