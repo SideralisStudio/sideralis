@@ -8,68 +8,130 @@
   <style>
     body {
       margin: 0;
-      background: radial-gradient(ellipse at bottom, #000 0%, #0a0a2a 100%);
+      background: linear-gradient(to bottom, #000010, #020014);
       overflow: hidden;
       font-family: 'Orbitron', sans-serif;
       color: white;
     }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.ibb.co/FWGGxQp/starfield.gif') repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
     .space {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       height: 100vh;
-      gap: 60px;
+      gap: 80px;
+      position: relative;
+      z-index: 1;
     }
     .planet {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: inset -10px -10px 25px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.1);
+      box-shadow: inset -15px -15px 25px rgba(0,0,0,0.4), 0 0 40px rgba(255,255,255,0.05);
+      overflow: hidden;
+      animation: float 8s ease-in-out infinite;
     }
-    .planet:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    .planet::before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      border-radius: 50%;
+      background: radial-gradient(rgba(255,255,255,0.1), transparent);
+      z-index: 1;
     }
     .planet::after {
       content: attr(data-name);
       position: absolute;
-      bottom: -30px;
+      bottom: -35px;
       width: 100%;
       text-align: center;
       font-size: 1em;
+      z-index: 2;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .earth {
-      background: radial-gradient(circle at 30% 30%, #65e87d, #2b78e4, #243b55);
+      background: radial-gradient(#9cfac3, #3c9bbf);
       font-family: 'Quicksand', sans-serif;
     }
+    .earth::after { color: #a5ffcf; }
+
     .moonpain {
-      background: radial-gradient(circle at 40% 40%, #ff1e1e, #220000);
+      background: radial-gradient(#ff1e56, #100000);
       font-family: 'Great Vibes', cursive;
     }
+    .moonpain::after { color: #ff5c5c; }
+
     .neptune {
-      background: radial-gradient(circle at 30% 30%, #00f, #f0f, #050d3b);
+      background: radial-gradient(#00f0ff, #ff00f0);
       font-family: 'Press Start 2P', monospace;
     }
+    .neptune::after { color: #79f0ff; }
+
     .mercury {
-      background: radial-gradient(circle at 50% 30%, #aa66ff, #2a003f);
+      background: radial-gradient(#c68fff, #2c0042);
       font-family: 'UnifrakturCook', cursive;
     }
+    .mercury::after { color: #ddaaff; }
+
     .jupiter {
-      background: radial-gradient(circle at 40% 40%, #f3b23a, #ff7300);
+      background: radial-gradient(#ffc857, #ff7300);
       font-family: 'Playfair Display', serif;
+    }
+    .jupiter::after { color: #ffd478; }
+
+    /* Cratères stylisés avec pseudo éléments */
+    .planet span {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+    .planet span:nth-child(1) {
+      width: 15px; height: 15px; top: 30px; left: 40px;
+    }
+    .planet span:nth-child(2) {
+      width: 10px; height: 10px; top: 70px; left: 100px;
+    }
+    .planet span:nth-child(3) {
+      width: 8px; height: 8px; top: 90px; left: 60px;
     }
   </style>
 </head>
 <body>
   <div class="space">
-    <div class="planet earth" data-name="Earth of Heart"></div>
-    <div class="planet moonpain" data-name="Moon Pain"></div>
-    <div class="planet neptune" data-name="Neptune Geek"></div>
-    <div class="planet mercury" data-name="Mercury Story"></div>
-    <div class="planet jupiter" data-name="Jupiter Draws"></div>
+    <div class="planet earth" data-name="Earth of Heart">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="planet moonpain" data-name="Moon Pain">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="planet neptune" data-name="Neptune Geek">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="planet mercury" data-name="Mercury Story">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="planet jupiter" data-name="Jupiter Draws">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </body>
 </html>
