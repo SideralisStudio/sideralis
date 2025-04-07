@@ -1,34 +1,50 @@
+<!-- Page Earth of Heart -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Earth of Heart</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('images/constearth.PNG') no-repeat center center;
-      background-size: cover;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .main-image {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
     }
 
     .back-button {
       position: absolute;
-      top: 30px;
-      left: 30px;
-      width: 100px;
-      height: 100px;
-      background-image: url('images/back.PNG');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: none;
       cursor: pointer;
+      z-index: 10;
+    }
+
+    .back-button img {
+      width: 80px;
+      height: auto;
     }
   </style>
 </head>
 <body>
-  <a href="index.html">
-    <div class="back-button"></div>
+  <a href="index.html" class="back-button">
+    <img src="images/RetourBouton.PNG" alt="Retour" />
   </a>
+
+  <img src="images/conearth.PNG" alt="Constellation Earth of Heart" class="main-image" />
 </body>
 </html>
