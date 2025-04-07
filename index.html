@@ -69,11 +69,26 @@
 </head>
 <body>
   <div class="container">
-    <div class="planet neptunegeek" style="background-image: url('images/Neptunegeek.PNG');" title="Neptune Geek"></div>
-    <div class="planet jupiterdraws" style="background-image: url('images/Jupiterdraws.PNG');" title="Jupiter Draws"></div>
-    <div class="planet moonpain" style="background-image: url('images/Moonpain.PNG');" title="Moon Pain"></div>
-    <div class="planet earthofheart" style="background-image: url('images/Eartofheart.PNG');" title="Earth of Heart"></div>
-    <div class="planet mercurystory" style="background-image: url('images/Mercurystory.PNG');" title="Mercury Story"></div>
+    <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');" title="Neptune Geek"></div>
+    <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');" title="Jupiter Draws"></div>
+    <div class="planet moonpain" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');" title="Moon Pain"></div>
+    <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');" title="Earth of Heart"></div>
+    <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');" title="Mercury Story"></div>
   </div>
+  <script>
+    const planets = document.querySelectorAll('.planet');
+    const body = document.body;
+    const defaultBg = 'images/Fond.PNG';
+
+    planets.forEach(planet => {
+      planet.addEventListener('mouseenter', () => {
+        const bg = planet.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+      planet.addEventListener('mouseleave', () => {
+        body.style.backgroundImage = `url('${defaultBg}')`;
+      });
+    });
+  </script>
 </body>
 </html>
