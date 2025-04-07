@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sideralis - Accueil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/fond.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.5s ease;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 2rem;
+    }
+
+    .planet {
+      width: 150px;
+      height: 150px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .planet:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    .planet.neptunegeek:hover ~ body {
+      background-image: url('images/fondneptune.png');
+    }
+    .planet.jupiterdraws:hover ~ body {
+      background-image: url('images/fondjupiter.png');
+    }
+    .planet.moonpain:hover ~ body {
+      background-image: url('images/fondmoon.png');
+    }
+    .planet.mercurystory:hover ~ body {
+      background-image: url('images/fondmercury.png');
+    }
+    .planet.earthofheart:hover ~ body {
+      background-image: url('images/fondeart.png');
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="planet neptunegeek" style="background-image: url('images/neptunegeek.png');" title="Neptune Geek"></div>
+    <div class="planet moonpain" style="background-image: url('images/moonpain.png');" title="Moon Pain"></div>
+    <div class="planet jupiterdraws" style="background-image: url('images/jupiterdraws.png');" title="Jupiter Draws"></div>
+    <div class="planet earthofheart" style="background-image: url('images/eartofheart.png');" title="Earth of Heart"></div>
+    <div class="planet mercurystory" style="background-image: url('images/mercurystory.png');" title="Mercury Story"></div>
+  </div>
+</body>
+</html>
