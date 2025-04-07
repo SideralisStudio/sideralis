@@ -46,6 +46,26 @@
       transform: translate(-50%, -50%) rotate(-8deg);
       width: 380px;
       z-index: 5;
+
+        /* ✅ Responsive mobile */
+    @media (max-width: 768px) {
+      .main-image {
+        width: 100vw;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+
+      .back-button img {
+        width: 60px;
+      }
+
+      .construction-sign {
+        width: 150px;
+        top: 15%;
+        left: 20%;
+        transform: translate(-50%, -50%) rotate(-8deg);
+      }
     }
   </style>
 </head>
