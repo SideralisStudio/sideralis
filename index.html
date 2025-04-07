@@ -68,16 +68,42 @@
       bottom: 20%;
       right: 20%;
     }
+
+    .label {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .planet:hover + .label {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');" title="Neptune Geek"></div>
+    <div class="label" style="top: calc(50% + 220px); left: 50%; transform: translateX(-50%); background-image: url('images/typnep.PNG');"></div>
+
     <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');" title="Jupiter Draws"></div>
+    <div class="label" style="top: calc(20% + 260px); left: 20%; transform: translateX(-50%); background-image: url('images/typjup.PNG');"></div>
+
     <div class="planet moonpain" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');" title="Moon Pain"></div>
+    <div class="label" style="top: calc(20% + 260px); right: 20%; transform: translateX(50%); background-image: url('images/typmoon.PNG');"></div>
+
     <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');" title="Earth of Heart"></div>
+    <div class="label" style="bottom: calc(20% - 60px); left: 20%; transform: translateX(-50%); background-image: url('images/typeart.PNG');"></div>
+
     <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');" title="Mercury Story"></div>
+    <div class="label" style="bottom: calc(20% - 60px); right: 20%; transform: translateX(50%); background-image: url('images/typmerc.PNG');"></div>
   </div>
+
   <script>
     const planets = document.querySelectorAll('.planet');
     const body = document.body;
