@@ -3,47 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jupiter Draws</title>
+  <title>Sideralis - Accueil</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #000;
+      background: url('images/Fond.PNG') no-repeat center center fixed;
+      background-size: 100% 100%;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.5s ease;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .planet-container {
+      position: absolute;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
+      
     }
 
-    .main-image {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    .back-button {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: none;
-      border: none;
+    .planet {
+      pointer-events: auto;
+      width: 250px;
+      height: 250px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.4s ease;
       cursor: pointer;
-      z-index: 10;
     }
 
-    .back-button img {
-      width: 80px;
-      height: auto;
+    .planet:hover {
+      transform: scale(1.2);
+    }
+
+    .label {
+      pointer-events: none;
+      width: 600px;
+      height: 160px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      margin-top: 10px;
+    }
+
+    .label-neptune {
+      width: 800px;
+      height: 200px;
+    }
+
+    .planet-container:hover .label {
+      opacity: 1;
+    }
+
+    .neptunegeek-container {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .jupiterdraws-container {
+      top: 20%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
+
+    .moonpain-container {
+      top: 20%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+    }
+
+    .earthofheart-container {
+      bottom: 20%;
+      left: 20%;
+      transform: translate(-50%, 50%);
+    }
+
+    .mercurystory-container {
+      bottom: 20%;
+      left: 80%;
+      transform: translate(-50%, 50%);
+    }
+
+    .planet.neptunegeek {
+      width: 400px;
+      height: 400px;
+    }
+
+    .planet.neptunegeek:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="back-button">
-    <img src="images/RetourBouton.PNG" alt="Retour">
-  </a>
+  <div class="container">
+    <div class="planet-container neptunegeek-container">
+      <a href="neptune.html">
+        <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');"></div>
+      </a>
+      <div class="label label-neptune" style="background-image: url('images/typnep.PNG');"></div>
+    </div>
 
-  <img src="images/constjup.PNG" alt="Constellation Jupiter" class="main-image">
+    <div class="planet-container jupiterdraws-container">
+      <a href="jupiter.html">
+        <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');"></div>
+      </a>
+      <div class="label" style="background-image: url('images/typjup.PNG');"></div>
+    </div>
+
+    <div class="planet-container moonpain-container">
+      <a href="moon.html">
+        <div class="planet moonpain" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');"></div>
+      </a>
+      <div class="label" style="background-image: url('images/typmoon.PNG');"></div>
+    </div>
+
+    <div class="planet-container earthofheart-container">
+      <a href="earth.html">
+        <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');"></div>
+      </a>
+      <div class="label" style="background-image: url('images/typearth.PNG'); margin-top: -20px;"></div>
+    </div>
+
+    <div class="planet-container mercurystory-container">
+      <a href="mercury.html">
+        <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');"></div>
+      </a>
+      <div class="label" style="background-image: url('images/typmerc.PNG'); margin-top: -20px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const planets = document.querySelectorAll('.planet');
+    const body = document.body;
+    const defaultBg = 'images/Fond.PNG';
+
+    planets.forEach(planet => {
+      planet.addEventListener('mouseenter', () => {
+        const bg = planet.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+      planet.addEventListener('mouseleave', () => {
+        body.style.backgroundImage = `url('${defaultBg}')`;
+      });
+    });
+  </script>
 </body>
 </html>
