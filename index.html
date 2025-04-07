@@ -22,8 +22,8 @@
     }
 
     .planet {
-      width: 250px;
-      height: 250px;
+      width: 150px;
+      height: 150px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -32,24 +32,26 @@
       cursor: pointer;
     }
 
-    /* Neptune au centre */
-   .planet.neptunegeek {
-
-  width: 400px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-
+    .planet:hover {
+      transform: scale(1.2);
     }
 
-    /* Autres planètes autour de Neptune */
+    .planet.neptunegeek {
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .planet.neptunegeek:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+
     .planet.jupiterdraws {
-      top: 25%;
-      left: 25%;
+      top: 20%;
+      left: 20%;
     }
 
     .planet.moonpain {
@@ -58,18 +60,13 @@
     }
 
     .planet.earthofheart {
-      bottom: 30%;
-      left: 30%;
+      bottom: 20%;
+      left: 20%;
     }
 
     .planet.mercurystory {
       bottom: 20%;
       right: 20%;
-    }
-
-    /* Effet au survol */
-    .planet:hover {
-      transform: scale(1.2);
     }
   </style>
 </head>
