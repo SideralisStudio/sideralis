@@ -46,6 +46,25 @@
       transform: translate(-50%, -50%) rotate(0deg);
       width: 300px;
       z-index: 5;
+
+      @media (max-width: 768px) {
+  .main-image {
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  .back-button img {
+    width: 60px;
+  }
+
+  .construction-sign {
+    width: 150px;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+
     }
   </style>
 </head>
