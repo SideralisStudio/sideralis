@@ -130,4 +130,24 @@
 
     <div class="planet-container mercurystory-container">
       <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');"></div>
-      <div class="label" style="background-image: url('images/tymerc.PNG');"></div>
+      <div class="label" style="background-image: url('images/typmerc.PNG'); margin-top: -20px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const planets = document.querySelectorAll('.planet');
+    const body = document.body;
+    const defaultBg = 'images/Fond.PNG';
+
+    planets.forEach(planet => {
+      planet.addEventListener('mouseenter', () => {
+        const bg = planet.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+      planet.addEventListener('mouseleave', () => {
+        body.style.backgroundImage = `url('${defaultBg}')`;
+      });
+    });
+  </script>
+</body>
+</html>
