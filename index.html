@@ -46,7 +46,7 @@
     }
 
     .label {
-      width: 500px;
+      width: 600px;
       height: 160px;
       background-size: contain;
       background-repeat: no-repeat;
@@ -54,6 +54,11 @@
       opacity: 0;
       transition: opacity 0.3s;
       margin-top: 10px;
+    }
+
+    .label-neptune {
+      width: 800px;
+      height: 200px;
     }
 
     .planet-container:hover .label {
@@ -105,7 +110,7 @@
   <div class="container">
     <div class="planet-container neptunegeek-container">
       <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');"></div>
-      <div class="label" style="background-image: url('images/typnep.PNG');"></div>
+      <div class="label label-neptune" style="background-image: url('images/typnep.PNG');"></div>
     </div>
 
     <div class="planet-container jupiterdraws-container">
@@ -118,31 +123,4 @@
       <div class="label" style="background-image: url('images/typmoon.PNG');"></div>
     </div>
 
-    <div class="planet-container earthofheart-container">
-      <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');"></div>
-      <div class="label" style="background-image: url('images/typeart.PNG');"></div>
-    </div>
-
-    <div class="planet-container mercurystory-container">
-      <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');"></div>
-      <div class="label" style="background-image: url('images/typmerc.PNG');"></div>
-    </div>
-  </div>
-
-  <script>
-    const planets = document.querySelectorAll('.planet');
-    const body = document.body;
-    const defaultBg = 'images/Fond.PNG';
-
-    planets.forEach(planet => {
-      planet.addEventListener('mouseenter', () => {
-        const bg = planet.getAttribute('data-bg');
-        body.style.backgroundImage = `url('${bg}')`;
-      });
-      planet.addEventListener('mouseleave', () => {
-        body.style.backgroundImage = `url('${defaultBg}')`;
-      });
-    });
-  </script>
-</body>
-</html>
+    <div class="planet-container
