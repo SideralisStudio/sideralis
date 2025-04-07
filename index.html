@@ -16,11 +16,9 @@
     }
 
     .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      position: relative;
+      width: 100vw;
       height: 100vh;
-      gap: 2rem;
     }
 
     .planet {
@@ -29,38 +27,74 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      transition: transform 0.4s ease;
+      position: absolute;
+      transition: transform 0.4s ease, background 0.5s ease;
       cursor: pointer;
     }
 
-    .planet:hover {
-      transform: scale(1.2) rotate(10deg);
+    /* Neptune au centre */
+    .planet.neptunegeek {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
     }
 
-    .planet.neptunegeek:hover ~ body {
+    /* Autres planètes autour de Neptune */
+    .planet.jupiterdraws {
+      top: 20%;
+      left: 20%;
+    }
+
+    .planet.moonpain {
+      top: 20%;
+      right: 20%;
+    }
+
+    .planet.earthofheart {
+      bottom: 20%;
+      left: 20%;
+    }
+
+    .planet.mercurystory {
+      bottom: 20%;
+      right: 20%;
+    }
+
+    /* Effet au survol */
+    .planet:hover {
+      transform: scale(1.2);
+    }
+
+    /* Changement de fond au survol */
+    .planet.neptunegeek:hover ~ .container {
       background-image: url('images/Fondneptune.PNG');
     }
-    .planet.jupiterdraws:hover ~ body {
+
+    .planet.jupiterdraws:hover ~ .container {
       background-image: url('images/Fondjupiter.PNG');
     }
-    .planet.moonpain:hover ~ body {
+
+    .planet.moonpain:hover ~ .container {
       background-image: url('images/Fondmoon.PNG');
     }
-    .planet.mercurystory:hover ~ body {
-      background-image: url('images/Fondmercury.PNG');
-    }
-    .planet.earthofheart:hover ~ body {
+
+    .planet.earthofheart:hover ~ .container {
       background-image: url('images/Fondeart.PNG');
+    }
+
+    .planet.mercurystory:hover ~ .container {
+      background-image: url('images/Fondmercury.PNG');
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="planet neptunegeek" style="background-image: url('images/Fondneptune.PNG');" title="Neptune Geek"></div>
-    <div class="planet moonpain" style="background-image: url('images/Fondmoon.PNG');" title="Moon Pain"></div>
-    <div class="planet jupiterdraws" style="background-image: url('images/FonjJupiter.PNG');" title="Jupiter Draws"></div>
-    <div class="planet earthofheart" style="background-image: url('images/Fondeart.jpg');" title="Earth of Heart"></div>
-    <div class="planet mercurystory" style="background-image: url('images/Fondmercury.PNG');" title="Mercury Story"></div>
+    <div class="planet neptunegeek" style="background-image: url('images/Neptunegeek.PNG');" title="Neptune Geek"></div>
+    <div class="planet jupiterdraws" style="background-image: url('images/Jupiterdraws.PNG');" title="Jupiter Draws"></div>
+    <div class="planet moonpain" style="background-image: url('images/Moonpain.PNG');" title="Moon Pain"></div>
+    <div class="planet earthofheart" style="background-image: url('images/Eartofheart.PNG');" title="Earth of Heart"></div>
+    <div class="planet mercurystory" style="background-image: url('images/Mercurystory.PNG');" title="Mercury Story"></div>
   </div>
 </body>
 </html>
