@@ -21,14 +21,23 @@
       height: 100vh;
     }
 
+    .planet-container {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
     .planet {
+      pointer-events: auto;
       width: 250px;
       height: 250px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      position: absolute;
-      transition: transform 0.4s ease, background 0.5s ease;
+      transition: transform 0.4s ease;
       cursor: pointer;
     }
 
@@ -36,41 +45,7 @@
       transform: scale(1.2);
     }
 
-    .planet.neptunegeek {
-      width: 400px;
-      height: 400px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    .planet.neptunegeek:hover {
-      transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    .planet.jupiterdraws {
-      top: 20%;
-      left: 20%;
-    }
-
-    .planet.moonpain {
-      top: 20%;
-      right: 20%;
-    }
-
-    .planet.earthofheart {
-      bottom: 20%;
-      left: 20%;
-    }
-
-    .planet.mercurystory {
-      bottom: 20%;
-      right: 20%;
-    }
-
     .label {
-      position: absolute;
       width: 200px;
       height: auto;
       background-size: contain;
@@ -78,30 +53,80 @@
       background-position: center;
       opacity: 0;
       transition: opacity 0.3s;
-      pointer-events: none;
+      margin-top: 10px;
     }
 
-    .planet:hover + .label {
+    .planet-container:hover .label {
       opacity: 1;
+    }
+
+    .neptunegeek-container {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .jupiterdraws-container {
+      top: 20%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
+
+    .moonpain-container {
+      top: 20%;
+      right: 20%;
+      transform: translate(50%, -50%);
+    }
+
+    .earthofheart-container {
+      bottom: 20%;
+      left: 20%;
+      transform: translate(-50%, 50%);
+    }
+
+    .mercurystory-container {
+      bottom: 20%;
+      right: 20%;
+      transform: translate(50%, 50%);
+    }
+
+    .planet.neptunegeek {
+      width: 400px;
+      height: 400px;
+    }
+
+    .planet.neptunegeek:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');" title="Neptune Geek"></div>
-    <div class="label" style="top: calc(50% + 220px); left: 50%; transform: translateX(-50%); background-image: url('images/typnep.PNG');"></div>
+    <div class="planet-container neptunegeek-container">
+      <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');"></div>
+      <div class="label" style="background-image: url('images/typnep.PNG');"></div>
+    </div>
 
-    <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');" title="Jupiter Draws"></div>
-    <div class="label" style="top: calc(20% + 260px); left: 20%; transform: translateX(-50%); background-image: url('images/typjup.PNG');"></div>
+    <div class="planet-container jupiterdraws-container">
+      <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');"></div>
+      <div class="label" style="background-image: url('images/typjup.PNG');"></div>
+    </div>
 
-    <div class="planet moonpain" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');" title="Moon Pain"></div>
-    <div class="label" style="top: calc(20% + 260px); right: 20%; transform: translateX(50%); background-image: url('images/typmoon.PNG');"></div>
+    <div class="planet-container moonpain-container">
+      <div class="planet moonpain" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');"></div>
+      <div class="label" style="background-image: url('images/typmoon.PNG');"></div>
+    </div>
 
-    <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');" title="Earth of Heart"></div>
-    <div class="label" style="bottom: calc(20% - 60px); left: 20%; transform: translateX(-50%); background-image: url('images/typeart.PNG');"></div>
+    <div class="planet-container earthofheart-container">
+      <div class="planet earthofheart" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');"></div>
+      <div class="label" style="background-image: url('images/typeart.PNG');"></div>
+    </div>
 
-    <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');" title="Mercury Story"></div>
-    <div class="label" style="bottom: calc(20% - 60px); right: 20%; transform: translateX(50%); background-image: url('images/typmerc.PNG');"></div>
+    <div class="planet-container mercurystory-container">
+      <div class="planet mercurystory" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');"></div>
+      <div class="label" style="background-image: url('images/typmerc.PNG');"></div>
+    </div>
   </div>
 
   <script>
