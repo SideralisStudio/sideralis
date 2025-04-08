@@ -102,6 +102,12 @@
       transform: translate(50%, 50%);
     }
 
+    .cashworld-container {
+      top: 5%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     .planet.neptunegeek {
       width: 400px;
       height: 400px;
@@ -112,8 +118,14 @@
       height: 180px;
     }
 
+    .planet.cashworld {
+      width: 220px;
+      height: 220px;
+    }
+
     .planet.neptunegeek:hover,
-    .planet.io:hover {
+    .planet.io:hover,
+    .planet.cashworld:hover {
       transform: scale(1.2);
     }
   </style>
@@ -160,6 +172,13 @@
         <div class="planet io" data-bg="images/Fondio.PNG" style="background-image: url('images/Io.PNG');"></div>
       </a>
       <div class="label" style="background-image: url('images/Typio.PNG');"></div>
+    </div>
+
+    <div class="planet-container cashworld-container">
+      <a href="cashworld.html">
+        <div class="planet cashworld" data-bg="images/Fondcash.PNG" style="background-image: url('images/CashWorld.PNG');"></div>
+      </a>
+      <div class="label" style="background-image: url('images/Typcash.PNG');"></div>
     </div>
   </div>
 
