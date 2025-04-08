@@ -23,10 +23,16 @@
 
     .planet-container {
       position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      transform: translate(-50%, -50%);
+      animation: rotateAround 20s linear infinite;
+    }
+
+    @keyframes rotateAround {
+      0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
     }
 
     .planet {
@@ -66,79 +72,21 @@
     }
 
     .neptunegeek-container {
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    .jupiterdraws-container {
-      top: 20%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-    }
-
-    .moonpain-container {
-      top: 20%;
-      left: 80%;
-      transform: translate(-50%, -50%);
-    }
-
-    .earthofheart-container {
-      bottom: 20%;
-      left: 20%;
-      transform: translate(-50%, 50%);
-    }
-
-    .mercurystory-container {
-      bottom: 20%;
-      left: 80%;
-      transform: translate(-50%, 50%);
-    }
-
-    .io-container {
-      bottom: 10%;
-      right: 10%;
-      transform: translate(50%, 50%);
-    }
-
-    .cashworld-container {
-      top: 5%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      z-index: 5;
     }
 
     .planet.neptunegeek {
       width: 400px;
       height: 400px;
     }
-
-    .planet.io {
-      width: 180px;
-      height: 180px;
-    }
-
-    .planet.cashworld {
-      width: 220px;
-      height: 220px;
-    }
-
-    .planet.neptunegeek:hover,
-    .planet.io:hover,
-    .planet.cashworld:hover {
-      transform: scale(1.2);
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="planet-container neptunegeek-container">
-      <a href="neptune.html">
-        <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');"></div>
-      </a>
-      <div class="label label-neptune" style="background-image: url('images/typnep.PNG');"></div>
-    </div>
-
     <div class="planet-container jupiterdraws-container">
       <a href="jupiter.html">
         <div class="planet jupiterdraws" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');"></div>
@@ -179,6 +127,13 @@
         <div class="planet cashworld" data-bg="images/Fondcash.PNG" style="background-image: url('images/CashWorld.PNG');"></div>
       </a>
       <div class="label" style="background-image: url('images/typcash.PNG');"></div>
+    </div>
+
+    <div class="neptunegeek-container">
+      <a href="neptune.html">
+        <div class="planet neptunegeek" data-bg="images/Fondneptune.PNG" style="background-image: url('images/Neptunegeek.PNG');"></div>
+      </a>
+      <div class="label label-neptune" style="background-image: url('images/typnep.PNG');"></div>
     </div>
   </div>
 
