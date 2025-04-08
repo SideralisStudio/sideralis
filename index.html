@@ -25,8 +25,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100%;
-      height: 100%;
+      width: 70vw;
+      height: 70vw;
       transform: translate(-50%, -50%);
       animation: rotateOrbit 60s linear infinite;
     }
@@ -36,12 +36,33 @@
       100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
+    @keyframes floatNeptune {
+      0% { transform: translate(-50%, -50%) translateY(0px); }
+      50% { transform: translate(-50%, -50%) translateY(-10px); }
+      100% { transform: translate(-50%, -50%) translateY(0px); }
+    }
+
     .planet-container {
       position: absolute;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      transform: translate(-50%, -50%);
+    }
+
+    .planet-container .planet,
+    .planet-container .label {
+      transform: rotate(-0deg); /* neutraliser l'effet de rotation */
+    }
+
+    .orbit .planet-container {
+      transform-origin: center center;
+    }
+
+    .orbit .planet-container .planet,
+    .orbit .planet-container .label {
+      transform: rotate(-0deg);
     }
 
     .planet {
@@ -87,6 +108,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 5;
+      animation: floatNeptune 5s ease-in-out infinite;
     }
 
     .planet.neptunegeek {
@@ -127,42 +149,42 @@
     </div>
 
     <div class="orbit">
-      <div class="planet-container" style="top: 0%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 0%; left: 50%;">
         <a href="jupiter.html">
           <div class="planet" data-bg="images/Fondjupiter.PNG" style="background-image: url('images/Jupiterdraws.PNG');"></div>
         </a>
         <div class="label" style="background-image: url('images/typjup.PNG');"></div>
       </div>
 
-      <div class="planet-container" style="top: 20%; left: 90%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 20%; left: 85%;">
         <a href="moon.html">
           <div class="planet" data-bg="images/Fondmoon.PNG" style="background-image: url('images/Moonpain.PNG');"></div>
         </a>
         <div class="label" style="background-image: url('images/typmoon.PNG');"></div>
       </div>
 
-      <div class="planet-container" style="top: 80%; left: 90%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 80%; left: 85%;">
         <a href="earth.html">
           <div class="planet" data-bg="images/Fondeart.PNG" style="background-image: url('images/Eartofheart.PNG');"></div>
         </a>
         <div class="label" style="background-image: url('images/typearth.PNG');"></div>
       </div>
 
-      <div class="planet-container" style="top: 100%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 100%; left: 50%;">
         <a href="mercury.html">
           <div class="planet" data-bg="images/Fondmercury.PNG" style="background-image: url('images/Mercurystory.PNG');"></div>
         </a>
         <div class="label" style="background-image: url('images/typmerc.PNG');"></div>
       </div>
 
-      <div class="planet-container" style="top: 80%; left: 10%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 80%; left: 15%;">
         <a href="io.html">
           <div class="planet" data-bg="images/Fondio.PNG" style="background-image: url('images/Io.PNG');"></div>
         </a>
         <div class="label" style="background-image: url('images/Typio.PNG');"></div>
       </div>
 
-      <div class="planet-container" style="top: 20%; left: 10%; transform: translate(-50%, -50%);">
+      <div class="planet-container" style="top: 20%; left: 15%;">
         <a href="cashworld.html">
           <div class="planet" data-bg="images/Fondcash.PNG" style="background-image: url('images/CashWorld.PNG');"></div>
         </a>
